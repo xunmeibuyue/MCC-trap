@@ -8,11 +8,7 @@ from idac.gui.view_tree import ViewTree
 from idac.configreader.configreader import readconfig
 from PyQt5 import QtCore
 import os
-from pympler.tracker import SummaryTracker
 from pathlib import Path
-
-
-tracker = SummaryTracker()
 
 from PyQt5.QtGui import QIcon, QPixmap
 
@@ -96,7 +92,7 @@ class IdacMain(QMainWindow):
         elif event.key() == QtCore.Qt.Key_B:
             self.secondWindow.show()
         elif event.key() == QtCore.Qt.Key_D:
-            tracker.print_diff()
+            pass
         elif event.key() == QtCore.Qt.Key_T:
             if self.statsw.isVisible():
                 self.statsw.close()
