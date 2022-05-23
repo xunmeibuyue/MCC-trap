@@ -75,7 +75,8 @@ class CnnClassifier(Classifier):
                 images.append(temp)
         to_pred = np.array(images).astype(np.float32)
         if len(to_pred != 0):
-            predictions = self.model.predict_proba(to_pred, verbose=1)
+            predict_x = self.model.predict(to_pred, verbose=1)
+            predictions = np.argmax(predict_x, axis=1)
             for i in range(len(ooi)):
                 probability = np.amax(predictions[i])
                 index = np.where(predictions[i] == probability)
